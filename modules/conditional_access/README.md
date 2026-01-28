@@ -98,8 +98,8 @@ This module includes multiple safety protections:
 
 Conditional Access requires **Entra ID Premium P1 or P2** licensing:
 
-- **P1**: $6/user/month - Includes Conditional Access, MFA, group-based access
-- **P2**: $9/user/month - Adds Identity Protection, PIM, access reviews
+- **P1**: ($6/user/month) (~€5.60/user/month) (~£4.80/user/month) - Includes Conditional Access, MFA, group-based access
+- **P2**: ($9/user/month) (~€8.40/user/month) (~£7.20/user/month) - Adds Identity Protection, PIM, access reviews
 
 **Check your license:**
 ```powershell
@@ -1391,9 +1391,9 @@ AuditLogs
 | Access Reviews | Entra ID Premium P2 |
 
 **Cost estimate (per user/month):**
-- Entra ID Premium P1: $6
-- Entra ID Premium P2: $9
-- Microsoft Intune: $6 (included in Microsoft 365 E3/E5)
+- Entra ID Premium P1: ($6/user/month) (~€5.60/user/month) (~£4.80/user/month)
+- Entra ID Premium P2: ($9/user/month) (~€8.40/user/month) (~£7.20/user/month)
+- Microsoft Intune: ($6/user/month) (~€5.60/user/month) (~£4.80/user/month) (included in Microsoft 365 E3/E5)
 
 ---
 

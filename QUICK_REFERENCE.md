@@ -126,8 +126,8 @@ Get-ItemProperty HKLM:\SOFTWARE\FSLogix\Profiles | Select-Object Enabled, VHDLoc
 
 | Environment | VMs | Storage | Total |
 |-------------|-----|---------|-------|
-| **Dev** | DC (B2ms) + 2x hosts (D2s_v5) | 100GB Standard | ~$210 |
-| **Prod** | DC (D2s_v5) + 10x hosts (D4s_v5) | 1TB Premium | ~$2,500 |
+| **Dev** | DC (B2ms) + 2x hosts (D2s_v5) | 100GB Standard | (~$210) (~€195) (~£168) |
+| **Prod** | DC (D2s_v5) + 10x hosts (D4s_v5) | 1TB Premium | (~$2,500) (~€2,330) (~£2,000) |
 
 ## Documentation Links
 

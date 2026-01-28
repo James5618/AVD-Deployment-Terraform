@@ -284,7 +284,7 @@ avd-sh-2.contoso.local      0
 ### Deallocate Old VMs
 
 ```bash
-# Stop VMs without deleting (saves ~$70/VM/month in compute costs)
+# Stop VMs without deleting (saves (~$70/VM/month) (~€65/VM/month) (~£56/VM/month) in compute costs)
 az vm deallocate --resource-group avd-dev-rg --name avd-sh-1 --no-wait
 az vm deallocate --resource-group avd-dev-rg --name avd-sh-2 --no-wait
 
@@ -562,7 +562,7 @@ az vm update \
 
 ### 5. Keep Rollback Window Open
 - **Recommended:** Retain old VMs (deallocated) for 48 hours minimum
-- **Cost:** $0 compute (deallocated), ~$20/month disk storage (temporary)
+- **Cost:** $0 compute (deallocated), (~$20/month) (~€18.60/month) (~£16/month) disk storage (temporary)
 - **Benefit:** Instant rollback if issues discovered
 
 ---
@@ -624,7 +624,7 @@ az vm run-command invoke \
 
 **User Impact:** Zero downtime (users unaffected, transparent migration)
 
-**Cost Impact:** Temporary doubling of VM costs during rollout (~$4-8/hour for 2 extra VMs)
+**Cost Impact:** Temporary doubling of VM costs during rollout (~$4-8/hour) (~€3.70-7.50/hour) (~£3.20-6.40/hour) for 2 extra VMs
 
 ---
 

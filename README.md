@@ -211,19 +211,19 @@ After deployment completes:
 **Development/Test (<10 session hosts):**
 - VM Size: `Standard_B2ms` (2 vCPU, 8GB RAM)
 - OS Disk: 128GB Standard SSD
-- Cost: ~$60/month
+- Cost: (~$60/month) (~€56/month) (~£48/month)
 - Sufficient for small AVD deployments
 
 **Production (10-50 session hosts):**
 - VM Size: `Standard_D2s_v5` (2 vCPU, 8GB RAM)
 - OS Disk: 128GB Premium SSD
-- Cost: ~$70/month
+- Cost: (~$70/month) (~€65/month) (~£56/month)
 - Recommended: Deploy 2 DCs for high availability
 
 **Large Production (50+ session hosts):**
 - VM Size: `Standard_D4s_v5` (4 vCPU, 16GB RAM)
 - OS Disk: 256GB Premium SSD
-- Cost: ~$140/month per DC
+- Cost: (~$140/month) (~€130/month) (~£112/month) per DC
 - Deploy 2-3 DCs across availability zones
 
 **Key Considerations:**
@@ -386,7 +386,7 @@ chocolatey_packages = ["googlechrome", "7zip", "adobereader"]
 - Initial build time (30-90 minutes)
 - Requires manual trigger for each build
 - Applications must support unattended installation
-- Additional Azure costs (~$1-3 per build, ~$5-15/month storage)
+- Additional Azure costs (~$1-3 per build) (~€0.90-2.80 per build) (~£0.80-2.40 per build), (~$5-15/month storage) (~€4.70-14/month storage) (~£4-12/month storage)
 
 **Best for:**
 - Production environments
@@ -2549,11 +2549,11 @@ terraform destroy
 ## Cost Estimation
 
 **Dev Environment (default configuration):**
-- Domain Controller (B2ms): ~$60/month
-- 2x Session Hosts (D2s_v5): ~$140/month
-- Storage Account (100GB): ~$5/month
-- Networking: ~$5/month
-- **Total: ~$210/month**
+- Domain Controller (B2ms): (~$60/month) (~€56/month) (~£48/month)
+- 2x Session Hosts (D2s_v5): (~$140/month) (~€130/month) (~£112/month)
+- Storage Account (100GB): (~$5/month) (~€4.70/month) (~£4/month)
+- Networking: (~$5/month) (~€4.70/month) (~£4/month)
+- **Total: (~$210/month) (~€195/month) (~£168/month)**
 
 **Prod Environment:**
 - Costs scale with session host count and VM sizes

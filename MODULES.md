@@ -144,9 +144,9 @@ Implements auto-scaling for cost optimization:
 - **Multi-timezone Support**: Configure per business hours
 
 **Typical Savings Example:**
-- Without scaling: $276/month (24/7 operation)
-- With scaling: $110/month (14 hours/day deallocated)
-- **Savings: $166/month (60% reduction)**
+- Without scaling: (~$276/month) (~€257/month) (~£220/month) (24/7 operation)
+- With scaling: (~$110/month) (~€102/month) (~£88/month) (14 hours/day deallocated)
+- **Savings: (~$166/month) (~€155/month) (~£132/month) (60% reduction)**
 
 **Documentation:** See [modules/scaling_plan/README.md](modules/scaling_plan/README.md) for detailed configuration examples.
 
@@ -163,7 +163,7 @@ Implements zero-trust security controls for AVD access:
 - **Policy States**: Report-only mode for testing before enforcement
 
 **Requirements:**
-- Entra ID Premium P1 or P2 licensing ($6-9/user/month)
+- Entra ID Premium P1 or P2 licensing ($6-9/user/month, ~€5.60-8.40/user/month, ~£4.80-7.20/user/month)
 - Break-glass accounts configured BEFORE enabling policies
 
 **Documentation:** See [modules/conditional_access/README.md](modules/conditional_access/README.md) for critical safety procedures.

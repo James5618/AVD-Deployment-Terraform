@@ -240,27 +240,27 @@ off_peak_load_balancing_algorithm = "DepthFirst"
 ### Example: 4 Session Hosts (Standard_D2s_v5)
 
 **Without Scaling:**
-- 4 VMs × $0.096/hour × 24 hours × 30 days = **$276.48/month**
+- 4 VMs × $0.096/hour × 24 hours × 30 days = **($276.48/month) (~€258/month) (~£221/month)**
 
 **With Scaling (60% savings):**
 
 | Period | Hours/Day | Hosts Running | Daily Cost |
 |--------|-----------|---------------|------------|
-| Ramp-up (7-9 AM) | 2 hours | 2-4 hosts (avg 3) | $0.58 |
-| Peak (9 AM-5 PM) | 8 hours | 4 hosts | $3.07 |
-| Ramp-down (5-7 PM) | 2 hours | 2-4 hosts (avg 3) | $0.58 |
-| Off-peak (7 PM-7 AM) | 14 hours | 0-1 hosts (avg 0.5) | $0.67 |
-| **Weekday Total** | 24 hours | Variable | **$4.90/day** |
+| Ramp-up (7-9 AM) | 2 hours | 2-4 hosts (avg 3) | ($0.58) (€0.54) (£0.46) |
+| Peak (9 AM-5 PM) | 8 hours | 4 hosts | ($3.07) (€2.86) (£2.45) |
+| Ramp-down (5-7 PM) | 2 hours | 2-4 hosts (avg 3) | ($0.58) (€0.54) (£0.46) |
+| Off-peak (7 PM-7 AM) | 14 hours | 0-1 hosts (avg 0.5) | ($0.67) (€0.62) (£0.53) |
+| **Weekday Total** | 24 hours | Variable | **($4.90/day) (€4.56/day) (£3.92/day)** |
 
 **Weekend (minimal usage):**
-- 48 hours × 0.5 hosts (avg) × $0.096/hour = **$2.30/weekend**
+- 48 hours × 0.5 hosts (avg) × $0.096/hour = **($2.30/weekend) (€2.14/weekend) (£1.84/weekend)**
 
 **Monthly Total:**
-- Weekdays: $4.90 × 22 days = $107.80
-- Weekends: $2.30 × 8 days = $18.40
-- **Total: $126.20/month**
+- Weekdays: $4.90 × 22 days = ($107.80) (€100.40) (£86.10)
+- Weekends: $2.30 × 8 days = ($18.40) (€17.15) (£14.70)
+- **Total: ($126.20/month) (€117.55/month) (£100.80/month)**
 
-**Savings: $276.48 - $126.20 = $150.28/month (54% reduction)**
+**Savings: $276.48 - $126.20 = ($150.28/month) (~€140/month) (~£120/month) (54% reduction)**
 
 ### Scaling Factors
 
