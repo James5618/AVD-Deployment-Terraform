@@ -1,0 +1,155 @@
+# ============================================================================
+# Production Environment - Configuration
+# ============================================================================
+# Copy this file to terraform.tfvars and customize the values below.
+# ⚠️ PRODUCTION SECURITY: Use Azure Key Vault for all passwords/secrets!
+# ============================================================================
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BASICS - Where and what to deploy
+# ─────────────────────────────────────────────────────────────────────────────
+environment  = "prod"
+location     = "eastus"  # Change to your preferred Azure region
+project_name = "avd"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CREDENTIALS - PRODUCTION: Store in Azure Key Vault!
+# ─────────────────────────────────────────────────────────────────────────────
+# Recommended: Reference from Key Vault like this:
+# domain_admin_password = data.azurerm_key_vault_secret.domain_admin_password.value
+domain_admin_password              = "CHANGE-THIS-TO-SECURE-PASSWORD"
+session_host_local_admin_password  = "CHANGE-THIS-TO-SECURE-PASSWORD"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DOMAIN CONFIGURATION
+# ─────────────────────────────────────────────────────────────────────────────
+domain_name           = "corp.contoso.com"  # Your production AD domain
+domain_admin_username = "domainadmin"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AVD USERS - Must exist in Azure AD before deployment
+# ─────────────────────────────────────────────────────────────────────────────
+avd_users = [
+  # "user1@contoso.com",
+  # "user2@contoso.com",
+  # "avd-users-group@contoso.com",
+]
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DEPLOYMENT SIZE - Scale for production workload
+# ─────────────────────────────────────────────────────────────────────────────
+session_host_count   = 5                  # Scale based on expected user count
+session_host_vm_size = "Standard_D4s_v5" # 4 vCPU, 16 GB RAM per host
+dc_vm_size           = "Standard_D2s_v5" # Higher spec for production DC
+
+# ─────────────────────────────────────────────────────────────────────────────
+# STORAGE - Profile storage sizing
+# ─────────────────────────────────────────────────────────────────────────────
+fslogix_share_quota_gb = 500  # Estimate 30-50GB per user
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OPTIONAL - Advanced settings (defaults are production-ready)
+# ─────────────────────────────────────────────────────────────────────────────
+# dc_enable_public_ip      = false           # Use Azure Bastion for production
+# load_balancer_type       = "DepthFirst"    # Fill existing hosts first
+# maximum_sessions_allowed = 15              # Max concurrent sessions per host
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PRODUCTION CHECKLIST
+# ─────────────────────────────────────────────────────────────────────────────
+# ☐ Store passwords in Azure Key Vault
+# ☐ Enable Azure Bastion for secure management
+# ☐ Configure backup policies for VMs and storage
+# ☐ Set up Azure Monitor and Log Analytics
+# ☐ Enable MFA and Conditional Access for AVD users
+# ☐ Configure terraform remote backend for state
+# ☐ Review NSG rules and network security
+# ☐ Set up Azure Site Recovery for DR
+# ☐ Consider Reserved Instances for cost savings
+
+# ====================
+# Network Configuration
+# ====================
+
+vnet_address_space    = "10.10.0.0/16"
+dc_subnet_prefix      = "10.10.1.0/24"
+avd_subnet_prefix     = "10.10.2.0/24"
+storage_subnet_prefix = "10.10.3.0/24"
+
+# ====================
+# Domain Controller
+# ====================
+
+dc_private_ip       = "10.10.1.4"
+dc_vm_size          = "Standard_D2s_v5"  # Higher spec for production
+dc_enable_public_ip = false  # Recommended: Use Azure Bastion instead
+
+# Active Directory Domain Settings
+domain_name           = "corp.contoso.com"
+domain_admin_username = "domainadmin"
+# ⚠️ PRODUCTION: Store password in Azure Key Vault and reference it
+# domain_admin_password = data.azurerm_key_vault_secret.domain_admin_password.value
+domain_admin_password = "CHANGE-THIS-TO-SECURE-PASSWORD"
+domain_ou_path        = ""  # Optionally specify OU path
+
+# ====================
+# AVD Configuration
+# ====================
+
+workspace_friendly_name  = "Production AVD Workspace"
+hostpool_type            = "Pooled"  # Options: Pooled, Personal
+load_balancer_type       = "DepthFirst"  # Fill existing hosts first
+hostpool_friendly_name   = "Production Host Pool"
+maximum_sessions_allowed = 15
+app_group_friendly_name  = "Production Desktop"
+
+# AVD Users (must exist in Azure AD)
+avd_users = [
+  # "user1@contoso.com",
+  # "user2@contoso.com",
+  # "avd-users-group@contoso.com",
+]
+
+# ====================
+# Session Hosts
+# ====================
+
+session_host_count                = 5  # Scale based on user count
+session_host_vm_size              = "Standard_D4s_v5"  # 4 vCPU, 16 GB RAM
+session_host_local_admin_username = "localadmin"
+# ⚠️ PRODUCTION: Store password in Azure Key Vault
+session_host_local_admin_password = "CHANGE-THIS-TO-SECURE-PASSWORD"
+
+# ====================
+# Storage (FSLogix)
+# ====================
+
+fslogix_share_name     = "user-profiles"
+fslogix_share_quota_gb = 500  # Adjust based on user count and profile sizes
+
+# ====================
+# Tags
+# ====================
+
+tags = {
+  CostCenter  = "IT"
+  Owner       = "AVD Production Team"
+  Environment = "Production"
+  Project     = "Azure Virtual Desktop"
+  Criticality = "High"
+  Compliance  = "Required"
+}
+
+# ====================
+# PRODUCTION NOTES
+# ====================
+# 1. Use Azure Key Vault for all passwords/secrets
+# 2. Enable Azure Bastion for secure VM access
+# 3. Configure backup policies for VMs and storage
+# 4. Enable Azure Monitor and Log Analytics
+# 5. Implement Azure Policy for governance
+# 6. Set up Azure Site Recovery for DR
+# 7. Use Reserved Instances for cost optimization
+# 8. Configure conditional access policies
+# 9. Enable MFA for all users
+# 10. Use terraform remote backend for state management

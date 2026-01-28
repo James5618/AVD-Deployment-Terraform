@@ -1,0 +1,69 @@
+# ============================================================================
+# AVD QUICKSTART - Configuration Template
+# ============================================================================
+# QUICK START:
+# 1. Copy this file to terraform.tfvars
+# 2. Edit the values below (especially passwords and user emails)
+# 3. Run: terraform init && terraform plan && terraform apply
+#
+# IMPORTANT: Never commit terraform.tfvars to version control!
+# ============================================================================
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DOMAIN CREDENTIALS
+# ─────────────────────────────────────────────────────────────────────────────
+# Change these passwords! Must meet Windows complexity requirements:
+# - At least 12 characters
+# - Uppercase, lowercase, number, special character
+
+domain_admin_username = "avdadmin"
+domain_admin_password = "YourSecurePassword123!"  # CHANGE THIS!
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AVD USERS
+# ─────────────────────────────────────────────────────────────────────────────
+# List user UPNs who should have access to AVD
+# Users must exist in your Entra ID tenant
+
+avd_users = [
+  "user1@yourdomain.com",
+  "user2@yourdomain.com"
+]
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OPTIONAL: Override default settings in main.tf locals block
+# ─────────────────────────────────────────────────────────────────────────────
+# Uncomment and modify these to override defaults:
+
+# project_name   = "avdquickstart"
+# environment    = "poc"
+# location       = "East US"
+# location_short = "eus"
+
+# domain_name         = "avd.local"
+# domain_netbios_name = "AVD"
+# dc_private_ip       = "10.0.1.4"
+# avd_ou_name         = "AVD"
+
+# dc_vm_size           = "Standard_B2ms"
+# session_host_vm_size = "Standard_D4s_v5"
+# session_host_count   = 2
+
+# hostpool_type            = "Pooled"
+# load_balancer_type       = "BreadthFirst"
+# maximum_sessions_allowed = 10
+
+# storage_account_tier     = "Standard"
+# storage_replication_type = "LRS"
+# fslogix_share_quota_gb   = 100
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ESTIMATED COSTS (as of 2026, may vary by region)
+# ─────────────────────────────────────────────────────────────────────────────
+# Domain Controller (Standard_B2ms):        ~$55/month
+# Session Hosts (2x Standard_D4s_v5):      ~$280/month
+# Storage (Standard LRS):                   ~$5/month
+# Networking:                               ~$10/month
+# ─────────────────────────────────────────────────────────────────────────────
+# Total Estimate:                           ~$350/month
+# ─────────────────────────────────────────────────────────────────────────────
