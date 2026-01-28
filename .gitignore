@@ -1,0 +1,60 @@
+# ============================================================================
+# Terraform .gitignore
+# ============================================================================
+# Protects sensitive data (passwords, state files) from version control
+# ============================================================================
+
+# Terraform State Files (contain sensitive data and resource IDs)
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Crash log files
+crash.log
+crash.*.log
+
+# ============================================================================
+# CRITICAL: Variable files with secrets (NEVER commit these!)
+# ============================================================================
+# terraform.tfvars contains actual passwords and configuration
+# Only commit terraform.tfvars.example (template without secrets)
+terraform.tfvars
+*.auto.tfvars
+secrets.tfvars
+
+# Allow example files (templates without secrets)
+!*.tfvars.example
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+
+# ============================================================================
+# Security Note:
+# If you accidentally commit terraform.tfvars:
+# 1. Remove it: git rm --cached terraform.tfvars
+# 2. Change all passwords immediately
+# 3. Consider it compromised - rotate all credentials
+# ============================================================================
